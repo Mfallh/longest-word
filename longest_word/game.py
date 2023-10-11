@@ -1,6 +1,8 @@
 import random
 import string
 from collections import Counter
+import requests
+import json
 
 class Game:
     def __init__(self) -> list:
@@ -26,6 +28,13 @@ class Game:
             counter_word[letter] <= counter_list[letter]
 
         if all(bool_list):
-            return True
+            return self.check_dictionary(word)
         else:
             return False
+
+
+    @staticmethod
+    def check_dictionary(word):
+        response = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
+        json_response = response.json()
+        return json_response['found']
