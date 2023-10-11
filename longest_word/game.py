@@ -34,7 +34,7 @@ class Game:
 
 
     @staticmethod
-    def __check_dictionary(word):
+    def __check_dictionary(self,word):
         response = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
         json_response = response.json()
         return json_response['found']
