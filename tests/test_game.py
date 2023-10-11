@@ -51,4 +51,4 @@ class TestGame:
         # exerice
         new_game.grid = list(test_grid) # Force the grid to a test case
         # verify
-        assert new_game.__check_dictionary(test_word) is True
+        assert new_game.check_dictionary(test_word) is True

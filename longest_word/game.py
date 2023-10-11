@@ -28,13 +28,13 @@ class Game:
             counter_word[letter] <= counter_list[letter]
 
         if all(bool_list):
-            return self.__check_dictionary(word)
+            return self.check_dictionary(word)
         else:
             return False
 
 
     @staticmethod
-    def __check_dictionary(self,word):
+    def check_dictionary(word):
         response = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
         json_response = response.json()
         return json_response['found']
